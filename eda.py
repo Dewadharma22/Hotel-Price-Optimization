@@ -129,9 +129,9 @@ def tampilkan_eda():
         avg_adr = filtered_df['adr'].mean()
         cancellation_rate = filtered_df[filtered_df['is_canceled'] == 1].shape[0] / total_bookings * 100 if total_bookings > 0 else 0
 
-        kpi1.metric(label="Total Pemesanan", value=f"{total_bookings:,}")
+        kpi1.metric(label="Total Booking", value=f"{total_bookings:,}")
         kpi2.metric(label="Rata-rata ADR", value=f"${avg_adr:.2f}")
-        kpi3.metric(label="Tingkat Pembatalan", value=f"{cancellation_rate:.1f}%")
+        kpi3.metric(label="Cancellation Rate", value=f"{cancellation_rate:.1f}%")
 
         st.markdown("<hr>", unsafe_allow_html=True)
 
