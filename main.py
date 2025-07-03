@@ -5,7 +5,6 @@ st.title("Hotel Pricing Optimization App")
 
 st.markdown("""
 Selamat datang di aplikasi prediksi harga kamar hotel!  
-Aplikasi ini menggunakan model machine learning untuk memprediksi **Average Daily Rate (ADR)** berdasarkan input data pemesanan hotel.
 """)
 
 # Tab Navigasi di Atas
