@@ -45,6 +45,4 @@ Proyek ini menghadirkan aplikasi web interaktif yang dibangun dengan **Streamlit
 * **I Dewa Nyoman Dharma Santika** - [LinkedIn](https://www.linkedin.com/in/dewanyomandharma)
 ---
 
-*(Opsional: Anda bisa menambahkan bagian "TODO" atau "Peningkatan Selanjutnya" jika ada rencana pengembangan di masa depan.)*
-
 **Terima kasih telah mengunjungi repository ini! 🙏**
