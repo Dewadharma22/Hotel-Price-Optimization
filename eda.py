@@ -5,15 +5,12 @@ import calendar
 
 @st.cache_data
 def load_data():
-    """Memuat dan membersihkan data dari CSV."""
     df = pd.read_csv("hotel_booking_demand_cleaned.csv")
-    # Konversi tipe data untuk efisiensi
     df['is_canceled'] = df['is_canceled'].astype('category')
     df['hotel'] = df['hotel'].astype('category')
     return df
 
 def plot_adr_by_month(df):
-    """Membuat plot interaktif ADR rata-rata per bulan menggunakan Plotly."""
     adr_month = df.groupby('arrival_month')['adr'].mean().reset_index()
     # Pastikan semua bulan ada, isi yang kosong dengan 0
     all_months = pd.DataFrame({'arrival_month': range(1, 13)})
@@ -79,7 +76,7 @@ def plot_cancellation_ratio(df):
 
 # --- UI STREAMLIT ---
 def tampilkan_eda():
-    st.title("📊 Dasbor Analisis Eksplorasi Data (EDA) Hotel")
+    st.title("📊 Dashboard Analisis Eksplorasi Data (EDA) Hotel")
     st.markdown("Gunakan filter di samping untuk menjelajahi tren dan pola dalam data pemesanan hotel.")
 
     # Load Data
@@ -106,7 +103,7 @@ def tampilkan_eda():
     selected_month_name = st.sidebar.multiselect("Bulan Kedatangan", month_names, default=["Semua"])
 
     # --- LOGIKA FILTER ---
-    filtered_df = df.copy() # Mulai dengan dataframe utuh
+    filtered_df = df.copy()
     if "Semua" not in selected_hotel:
         filtered_df = filtered_df[filtered_df['hotel'].isin(selected_hotel)]
     if "Semua" not in selected_cancel_display:
@@ -123,7 +120,7 @@ def tampilkan_eda():
     # --- HALAMAN UTAMA ---
     
     # Metrik Utama (KPI)
-    st.markdown("### Ringkasan Data Terfilter")
+    st.markdown("### Ringkasan Data")
     if filtered_df.empty:
         st.warning("Tidak ada data yang cocok dengan filter yang dipilih. Harap ubah pilihan Anda.")
     else:
@@ -138,7 +135,6 @@ def tampilkan_eda():
 
         st.markdown("<hr>", unsafe_allow_html=True)
 
-        # Layout Grafik 2x2
         col1, col2 = st.columns(2)
 
         with col1:
